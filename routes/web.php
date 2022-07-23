@@ -41,9 +41,11 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 
     Route::prefix('/admin')->group(function(){
+        Route::get('/', function(){
+            return redirect()->route('dashboard');
+        });
 
-        Route::get('/', [AdminController::class, 'index'])->name('admin');
-
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
 
         //routes for slider 
