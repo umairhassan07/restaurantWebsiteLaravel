@@ -12,6 +12,7 @@ use App\Http\Controllers\OurChefs;
 use App\Http\Controllers\MealsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -110,6 +111,10 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
         Route::get('/users/edit/{id?}', [UsersController::class, 'edit'])->name('edit-user');
         Route::post('/users/update/{id?}', [UsersController::class, 'update'])->name('update-user');
         Route::get('/users/delete/{id?}', [UsersController::class, 'destroy'])->name('delete-user');
+
+        //routes for profile page
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+        Route::post('/profile/update/{id?}', [ProfileController::class, 'update'])->name('update-profile');
         
     });
 

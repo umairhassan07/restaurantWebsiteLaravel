@@ -48,12 +48,12 @@
           </a>
           <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end" style="margin-left: -75px">
             <div class="p-3 text-center bg-primary">
-              <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('adminAssets/images/faces/face28.png') }}" alt="">
+              <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('images/users/'.Auth::user()->image) }}" style="object-fit: cover" alt="">
             </div>
             <div class="p-2">
               <h5 class="dropdown-header text-uppercase ps-2 text-dark">User Options</h5>
               
-              <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+              <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{ route('profile') }}">
                 <span>Profile</span>
                 <span class="p-0">
                   <span class="badge badge-success">1</span>
