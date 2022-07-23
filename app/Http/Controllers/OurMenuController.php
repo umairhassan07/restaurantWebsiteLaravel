@@ -115,7 +115,7 @@ class OurMenuController extends Controller
         if($request->hasFile('menuImage')){
             $image = $request->file('menuImage');
             $original_name = $image->getClientOriginalName();
-            $name = time().$original_name.'.'.$image->getClientOriginalExtension();;
+            $name = time().'.'.$image->getClientOriginalExtension();;
             $destinationPath = public_path('/images/menu');
             $image->move($destinationPath, $name);
 

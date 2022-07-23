@@ -78,7 +78,7 @@ class OurChefs extends Controller
      */
     public function edit($id)
     {
-        $cheff = CheffModel::first();
+        $cheff = CheffModel::where('id', $id)->first();
         return view('admin.chefs.edit', compact('cheff') );
     }
 
