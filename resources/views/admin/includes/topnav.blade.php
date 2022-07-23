@@ -35,7 +35,12 @@
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="nav-profile-img">
-              <img src="{{ asset('adminAssets/images/faces/face28.png') }}" alt="image">
+              @if(!empty(Auth::user()->image))
+                <img src="{{ asset('images/users/'.Auth::user()->image) }}" style="object-fit: cover;" alt="image">
+                @else
+                <img src="{{ asset('adminAssets/images/faces/face28.png') }}" alt="image">
+              @endif
+              
             </div>
             <div class="nav-profile-text">
               <p class="mb-1 text-black">{{ Auth::user()->name }}</p>
