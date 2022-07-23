@@ -258,7 +258,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div id="filterDate2">    
-                                  <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                  <div class="input-group " >
                                     <input  name="reservation_date" id="date" type="date" class="form-control">
                                     <div class="input-group-addon" >
                                       <span class="glyphicon glyphicon-th"></span>
