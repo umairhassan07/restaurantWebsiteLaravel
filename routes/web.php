@@ -11,6 +11,7 @@ use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\OurChefs;
 use App\Http\Controllers\MealsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UsersController;
 
 
 /*
@@ -101,6 +102,14 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
         Route::get('/meals/edit/{id?}', [MealsController::class, 'edit'])->name('edit-meal');
         Route::post('/meals/update/{id?}', [MealsController::class, 'update'])->name('update-meal');
         Route::get('/meals/delete/{id?}',[MealsController::class, 'destroy'])->name('delete-meal');
+
+        //users routes
+        Route::get('/users', [UsersController::class, 'index'])->name('users');
+        Route::get('/users/add', [UsersController::class, 'create'])->name('add-user');
+        Route::post('/users/store', [UsersController::class, 'store'])->name('store-user');
+        Route::get('/users/edit/{id?}', [UsersController::class, 'edit'])->name('edit-user');
+        Route::post('/users/update/{id?}', [UsersController::class, 'update'])->name('update-user');
+        Route::get('/users/delete/{id?}', [UsersController::class, 'destroy'])->name('delete-user');
         
     });
 

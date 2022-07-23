@@ -39,6 +39,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ route('users') }}">
+          <span class="icon-bg"><i class="mdi mdi-account-box"></i></span>
+          <span class="menu-title">Users</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{{ route('about-us') }}">
           <span class="icon-bg"><i class="mdi mdi-google-pages"></i></span>
           <span class="menu-title">About Us</span>
