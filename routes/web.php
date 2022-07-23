@@ -26,6 +26,10 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
+// Route::get('/', function(){
+//     dd(Hash::make('12341234'));
+// });
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
