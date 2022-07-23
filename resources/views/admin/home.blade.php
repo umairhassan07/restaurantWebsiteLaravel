@@ -22,7 +22,7 @@
                       <div class="card-body text-center">
                         <h5 class="mb-2 text-dark font-weight-normal">Total Cheffs</h5>
                         <h2 class="mb-4 text-dark font-weight-bold">{{ $cheffs }}</h2>
-                        <p class="mt-4 mb-0">Booked</p>
+                        {{-- <p class="mt-4 mb-0">Booked</p> --}}
                         <a href="{{ route('our-cheff') }}"><h4 class="mb-0 font-weight-bold mt-2 text-dark">View</h4></a>
                       </div>
                     </div>
@@ -32,8 +32,8 @@
                       <div class="card-body text-center">
                         <h5 class="mb-2 text-dark font-weight-normal">Total Users</h5>
                         <h2 class="mb-4 text-dark font-weight-bold">{{ $users }}</h2>
-                        <p class="mt-4 mb-0">Booked</p>
-                        {{-- <a href="{{ route('') }}"><h4 class="mb-0 font-weight-bold mt-2 text-dark">View</h4></a> --}}
+                        {{-- <p class="mt-4 mb-0">Booked</p> --}}
+                        <a href="{{ route('users') }}"><h4 class="mb-0 font-weight-bold mt-2 text-dark">View</h4></a>
                       </div>
                     </div>
                   </div>
