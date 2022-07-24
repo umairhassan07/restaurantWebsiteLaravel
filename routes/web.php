@@ -35,10 +35,10 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
    
-    Route::get('/home', [FrontendController::class, 'index']);
+    Route::get('/home', [FrontendController::class, 'index'])->name('home');
     Route::get('/', function () {
         return redirect('/home');
-    });
+    })->name('home');
 
     
 });
