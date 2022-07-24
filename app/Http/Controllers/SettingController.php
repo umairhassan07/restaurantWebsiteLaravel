@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TopSliderModal;
-use App\Models\AboutUsModel;
-use App\Models\MenuModel;
-use App\Models\ContactUsModel;
-use App\Models\CheffModel;
-use App\Models\MealsModel;
-use App\Models\SettingModel;
 use Illuminate\Http\Request;
+use App\Models\SettingModel;
+use File;
+use Session;
 
-
-class FrontendController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,30 +16,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $sliders = TopSliderModal::get();
-        $about = AboutUsModel::first();
-        $imgs[] = $about['img1'];
-        $imgs[] = $about['img2'];
-        $imgs[] = $about['img3'];
-        $about['images'] = $imgs;
-
-        $menu  = MenuModel::get();
-
-        $cheffs = CheffModel::get();
-
-        $contact = ContactUsModel::where('id', 1)->first();
-
-        $meals_breakfast = MealsModel::where('type', 'breakfast')->get();
-       
-        $meals_lunch = MealsModel::where('type', 'lunch')->get();
-       
-        $meals_dinner = MealsModel::where('type', 'dinner')->get();
-
         $settings = SettingModel::where('id', 1)->first();
         $settings['social'] = json_decode($settings['social_links']);
-
-
-        return view('home', compact('sliders','about','menu','cheffs','contact','meals_breakfast','meals_lunch','meals_dinner','settings'));    
+        return view('admin.settings.update', compact('settings'));
     }
 
     /**
@@ -65,7 +39,7 @@ class FrontendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -99,7 +73,37 @@ class FrontendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //old image name and path 
+        $old_name = SettingModel::where('id', 1)->first()->image;
+        $image_path = public_path('images/settings/'.$old_name);
+
+        if($request->hasFile('logo')){
+            $image = $request->file('logo');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destination = public_path('images/settings/');
+            $image->move($destination, $name);
+
+            if(File::exists($image_path)){
+                File::delete($image_path);
+            }
+
+            SettingModel::where('id', 1)->update([
+                'logo' => $name
+            ]);
+        }
+
+        SettingModel::where('id', 1)->update([
+            'social_links' => json_encode($request->input('social')),
+            'footer_text' => $request->input('footertext')
+        ]);
+
+
+        Session::flash('message', 'Settings Updated Successfully!'); 
+        Session::flash('alert-class', 'alert-success');
+        return redirect()->route('settings');
+
+
+
     }
 
     /**

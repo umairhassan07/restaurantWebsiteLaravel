@@ -13,6 +13,7 @@ use App\Http\Controllers\MealsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 
 
 /*
@@ -119,6 +120,10 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
         //routes for profile page
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
         Route::post('/profile/update/{id?}', [ProfileController::class, 'update'])->name('update-profile');
+
+        //routes for settings
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings');
+        Route::post('/settings/update/{id?}', [SettingController::class, 'update'])->name('update-settings');
         
     });
 

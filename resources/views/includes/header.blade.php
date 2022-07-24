@@ -17,8 +17,8 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/klassy-logo.png" >
+                        <a href="{{ route('dashboard') }}" class="logo">
+                            <img height="55" width="170" src="{{ asset('images/settings/'.$settings['logo']) }}" >
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
