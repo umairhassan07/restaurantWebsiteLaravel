@@ -60,7 +60,7 @@
                   <i class="mdi mdi-account-outline ms-1"></i>
                 </span>
               </a>
-              <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="javascript:void(0)">
+              <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('settings')}}">
                 <span>Settings</span>
                 <i class="mdi mdi-settings"></i>
               </a>
