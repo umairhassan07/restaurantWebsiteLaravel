@@ -130,12 +130,4 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     
     
 });
-
-
-
-
-
-
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
